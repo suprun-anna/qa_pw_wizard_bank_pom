@@ -1,5 +1,4 @@
 import { test } from '@playwright/test';
-import { faker } from '@faker-js/faker';
 import { OpenAccountPage } from '../../../src/pages/manager/OpenAccountPage';
 
 test('Assert manager can choose currencies for account', async ({ page }) => {
@@ -17,7 +16,6 @@ test('Assert manager can choose currencies for account', async ({ page }) => {
 
   const openAccountPage = new OpenAccountPage(page);
   await openAccountPage.open();
-  await openAccountPage.page.waitForTimeout(1000);
   await openAccountPage.selectCurrency('Dollar');
   await openAccountPage.assertCurencyExistsInDropdown('Dollar');
   await openAccountPage.selectCurrency('Pound');
